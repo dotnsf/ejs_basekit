@@ -1,33 +1,6 @@
 <%- include( './header', {} ) %>
 
 <div class="container" style="padding: 50px 0 0 0">
-  <img id="slidegame_img" class="jqPuzzle" width="100%"/>
-</div>
-
-<div class="modal bd-example-modal-lg fade" id="iModal" tabindex="-1" role="dialog" aria-labbelledby="iModal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="iModalLabel"></h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">x</span>
-        </button>
-      </div>
-      <div class="modal-body justify-content-center" id="imodal-body">
-        <select class="form-control" id="categories">
-          <option value="">（カテゴリーを選択）</option>
-          <option value="search">（キーワード検索）</option>
-        </select>
-        <form id="searchform" method="GET" action="/search"><input type="text" class="form-control" placeholder="（検索ワード）" id="search" value="" style="display:none;"/></form>
-
-        <div id="mycarousel" class="slick-box">
-        </div>
-      </div>
-      <div class="modal-footer btn-center">
-        <button type="button" class="btn modal_button" data-dismiss="modal">OK</button>
-      </div>
-    </div>
-  </div>
 </div>
 
 <%- include( './footer', {} ) %>
