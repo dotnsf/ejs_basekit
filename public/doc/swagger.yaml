@@ -1,0 +1,113 @@
+swagger: '2.0'
+info:
+  description: EJS Basekit API ドキュメント
+  version: 0.0.1
+  title: EJS Basekit Platform REST APIs
+host: localhost:8080
+basePath: /api
+tags:
+  - name: item
+    description: APIs for item
+schemes:
+  - http
+  - https
+paths:
+  /item:
+    post:
+      tags:
+        - item
+      summary: 新規に item を作成する
+      description: 新規に item を作成する
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ItemRequest'
+      responses:
+        '200':
+          description: 成功
+        '400':
+          description: エラー
+  /item/{id}:
+    get:
+      tags:
+        - item
+      summary: 特定の item を取得する
+      description: 特定の item を取得する
+      parameters:
+        - in: path
+          name: id
+          type: string
+          description: item の id
+          required: true
+      responses:
+        '200':
+          description: 成功
+        '400':
+          description: エラー
+    delete:
+      tags:
+        - item
+      summary: 特定の item を削除する
+      description: 特定の item を削除する
+      parameters:
+        - in: path
+          name: id
+          type: string
+          description: item の id
+          required: true
+      responses:
+        '200':
+          description: 成功
+        '400':
+          description: エラー
+    put:
+      tags:
+        - item
+      summary: 特定の item を更新する
+      description: 特定の item を更新する
+      parameters:
+        - in: path
+          name: id
+          type: string
+          description: item の id
+          required: true
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ItemRequest'
+      responses:
+        '200':
+          description: 成功
+        '400':
+          description: エラー
+  /items:
+    get:
+      tags:
+        - item
+      summary: item id を複数取得する
+      description: item id を複数取得する
+      parameters:
+        - in: query
+          name: limit
+          type: integer
+          description: 取得数上限（無指定時は上限なし）
+        - in: query
+          name: offset
+          type: integer
+          description: 取得時のオフセット（無指定時は 0）
+      responses:
+        '200':
+          description: 成功
+        '400':
+          description: エラー
+definitions:
+  ItemRequest:
+    type: object
+    properties:
+      name:
+        type: string
+        description: 名前
+      age:
+        type: integer
+        description: 年齢
